@@ -1,3 +1,31 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://rsms.me/inter/inter.css');
+.ht {
+    width: 100%;
+    height: max-content;
+    background: -moz-linear-gradient(top left, #1E1A1E, #0A070A);
+    background: -webkit-linear-gradient(top left, #1E1A1E, #0A070A);
+    background: linear-gradient(to bottom right, #1E1A1E, #0A070A);
+    .ht-icon {
+        flex: 0 0 auto;
+        text-align: center;
+        padding: 20px 0;
+        h2 {
+            color: #ffffff;
+            margin-bottom: 0;
+            margin-top: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+        img {
+            border-radius: 50%;
+            padding: 10px;
+            border: 5px solid #40D04F;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+        }
+    }
+    .bio {
+        flex: 0 0 auto;
+    }
+}

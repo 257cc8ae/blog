@@ -13,9 +13,19 @@
  *= require_tree .
  *= require_self
  */
+:root {
+    --logo-font-family: 'IBM Plex Mono', monospace;
+}
+
+
 html,
 body {
     margin: 0;
+}
+
+.turbolinks-progress-bar {
+    height: 10px;
+    background-color: #B8050B;
 }
 
 header {
@@ -26,6 +36,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 100;
 
     .header-main {
         width: max-content;
@@ -44,7 +55,7 @@ header {
         }
 
         .logo {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: var(--logo-font-family);
             line-height: 80px;
             font-size: 20px;
             background: #B8050B;
@@ -85,7 +96,7 @@ header {
                 flex: 0 0 auto;
                 line-height: 80px;
                 list-style: none;
-                font-family: 'IBM Plex Mono', monospace;
+                font-family: var(--logo-font-family);
                 padding: 0 20px;
 
                 &:hover {
@@ -122,7 +133,7 @@ header {
 
                 &::placeholder {
                     color: #586069;
-                    font-family: 'IBM Plex Mono', monospace;
+                    font-family: var(--logo-font-family);
                 }
             }
         }
@@ -213,12 +224,65 @@ header {
     }
 }
 
+.btn-f {
+    font-family: var(--logo-font-family);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #fff;
+    color: #B8050B;
+    border: #B8050B solid 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+        color: #fff;
+        background: #B8050B;
+    }
+}
+
 main {
     margin-top: 81px;
     width: 95%;
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
+}
+
+footer {
+    width: 100%;
+    height: max-content;
+    background: #F9FAFA;
+    margin-top: 20px;
+    padding: 20px 0;
+    text-align: center;
+
+    .footer-logo-area {
+
+        .logo {
+            font-family: var(--logo-font-family);
+            line-height: 80px;
+            font-size: 20px;
+            background: #B8050B;
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-weight: bold;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .copyright {
+        font-family: var(--logo-font-family);
+        text-align: center;
+    }
+}
+
+.custom-font {
+    font-family: var(--logo-font-family);
 }
 
 @media (max-width: 1060px) {

@@ -1,6 +1,6 @@
 <% content_for(:html_title) { '記事の新規作成' } %>
 <div class="editor-area">
-    <%= form_with model: @post do |f| %>
+    <%= form_with model: @post,method: "patch" do |f| %>
     <%= f.text_field :title,class: "editor-post-title", placeholder: "Title" %>
     <%= f.text_field :tags,class: "tag-field", placeholder: "#tag" %>
     <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Input template:(name) or thumbnail image url" %>

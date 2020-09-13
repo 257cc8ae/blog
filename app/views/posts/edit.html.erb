@@ -1,2 +1,42 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<% content_for(:html_title) { "#{@post.title}の編集" } %>
+<div class="editor-area">
+    <%= form_with model: @post do |f| %>
+    <%= f.text_field :title,class: "editor-post-title", placeholder: "Title" %>
+    <%= f.text_field :tags,class: "tag-field", placeholder: "#tag" %>
+    <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Input template:(name) or thumbnail image url" %>
+    <%= f.text_field :name,class: "tag-field",id: "post-name", placeholder: "/posts/xxx" %>
+    <div class="editor-tab">
+        <button type="button" class="active" id="editor_button">
+            Editor
+        </button>
+        <button type="button" id="preview">
+            Preview
+        </button>
+    </div>
+    <div id="editor"><%= @post.content %></div>
+    <div class="content-preview">
+        preview
+    </div>
+    <%= f.hidden_field :content,id: "editor_value" %>
+    <div class="post-btn-area">
+        <%= f.submit "Update",class:"btn-f" %>
+    </div>
+    <% end %>
+    <div>
+        <h3 class="custom-font">
+            Do you need to delete this article?
+        </h3>
+        <div class="post-btn-area">
+            <%= link_to post_path(@post.id),method: :delete, data: { confirm: "Are you sure you want to remove this post?" } do %>
+            <button class="btn-f">
+                Delete this post
+            </button>
+            <% end %>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/snippets/markdown.min.js"></script>
+<script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
+<%= javascript_pack_tag "editor" %>
