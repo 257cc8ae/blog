@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @post = Post.find_by(name: params[:id])
+  end
+
   def edit
   end
 end

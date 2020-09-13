@@ -5,6 +5,7 @@
     padding-top: 20px;
 
     .editor-tab {
+        margin-top: 20px;
         width: 100%;
         display: flex;
 
@@ -20,10 +21,15 @@
             font-weight: bold;
             font-size: 16px;
             cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            font-family: 'IBM Plex Mono', monospace;
+
             &:hover {
                 color: #fff;
                 background: #B8050B;
+                text-decoration: underline;
             }
+
             &:focus {
                 outline: none;
             }
@@ -45,8 +51,57 @@
         font-weight: bold;
         border: none;
 
+        &::placeholder {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
         &:focus {
             outline: none;
         }
     }
+
+    .tag-field {
+        width: 100%;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        font-family: 'IBM Plex Mono', monospace;
+        margin-top: 10px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    #editor {
+        height: 700px;
+    }
+
+    .post-btn-area {
+        float: right;
+        margin-top: 20px;
+
+        input {
+            font-family: 'IBM Plex Mono', monospace;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            background: #fff;
+            color: #B8050B;
+            border: #B8050B solid 2px;
+            padding: 10px 20px;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+                color: #fff;
+                background: #B8050B;
+            }
+        }
+    }
+}
+
+pre code {
+    font-size: 20px;
+    border-radius: 4px;
 }

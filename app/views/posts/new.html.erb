@@ -1,7 +1,10 @@
 <% content_for(:html_title) { '記事の新規作成' } %>
 <div class="editor-area">
     <%= form_with model: @post do |f| %>
-    <%= f.text_field :title,class: "editor-post-title", placeholder: "タイトル" %>
+    <%= f.text_field :title,class: "editor-post-title", placeholder: "Title" %>
+    <%= f.text_field :tags,class: "tag-field", placeholder: "#tag" %>
+    <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Input template:(name) or thumbnail image url" %>
+    <%= f.text_field :name,class: "tag-field",id: "post-name", placeholder: "/posts/xxx" %>
     <div class="editor-tab">
         <button type="button" class="active" id="editor_button">
             Editor
@@ -10,11 +13,14 @@
             Preview
         </button>
     </div>
-    <div id="editor" style="min-height: 300px"></div>
+    <div id="editor"></div>
     <div class="content-preview">
     preview
     </div>
-    <%= f.submit "投稿" %>
+    <%= f.hidden_field :content,id: "editor_value" %>
+    <div class="post-btn-area">
+    <%= f.submit "Post",class:"post-btn" %>
+    </div>
     <% end %>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
