@@ -22,6 +22,7 @@ header {
     width: 100%;
     height: 79px;
     border-bottom: 1px solid #b5bdc4;
+    background: #fff;
     position: fixed;
     top: 0;
     left: 0;
@@ -103,21 +104,24 @@ header {
             margin-right: 0;
 
             input {
-                background: #F9FAFA;
+                background-color: #F9FAFA;
                 border: 1px solid #b5bdc4;
                 height: 27px;
                 padding: 10px 20px;
                 border-radius: 4px;
-                font-family: 'IBM Plex Mono', monospace;
+                padding-left: 50px;
+                background: url("/apis/image?n=search") 15px 13px no-repeat;
+                background-size: 20px;
 
                 &:focus {
                     outline: none;
                     border: 1px solid #B8050B;
-                    background: #fff;
+                    background-color: #fff;
                 }
 
                 &::placeholder {
                     color: #586069;
+                    font-family: 'IBM Plex Mono', monospace;
                 }
             }
         }
@@ -204,5 +208,19 @@ header {
                 display: block;
             }
         }
+    }
+}
+
+main {
+    margin-top: 81px;
+    width: 95%;
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (max-width: 1060px) {
+    main {
+        margin-top: 61px;
     }
 }

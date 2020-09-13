@@ -17,6 +17,8 @@
     rel="stylesheet">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/vs.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
 </head>
 
 <body>
@@ -79,7 +81,9 @@
       </div>
     </div>
   </header>
-  <%= yield %>
+  <main>
+    <%= yield %>
+  </main>
   <%= javascript_pack_tag "main" %>
   <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>

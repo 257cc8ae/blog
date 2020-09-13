@@ -1,2 +1,24 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<% content_for(:html_title) { '記事の新規作成' } %>
+<div class="editor-area">
+    <%= form_with model: @post do |f| %>
+    <%= f.text_field :title,class: "editor-post-title", placeholder: "タイトル" %>
+    <div class="editor-tab">
+        <button type="button" class="active" id="editor_button">
+            Editor
+        </button>
+        <button type="button" id="preview">
+            Preview
+        </button>
+    </div>
+    <div id="editor" style="min-height: 300px"></div>
+    <div class="content-preview">
+    preview
+    </div>
+    <%= f.submit "投稿" %>
+    <% end %>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/snippets/markdown.min.js"></script>
+<script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
+<%= javascript_pack_tag "editor" %>

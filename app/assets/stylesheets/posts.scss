@@ -1,3 +1,52 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.editor-area {
+    padding-top: 20px;
+
+    .editor-tab {
+        width: 100%;
+        display: flex;
+
+        button {
+            padding: 10px 20px;
+            color: #B8050B;
+            background: #fff;
+            border: #B8050B 2px solid;
+            flex: 0 0 auto;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            &:hover {
+                color: #fff;
+                background: #B8050B;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .active {
+            color: #fff;
+            background: #B8050B;
+        }
+    }
+
+    .content-preview {
+        display: none;
+    }
+
+    .editor-post-title {
+        width: 100%;
+        font-size: 28px;
+        font-weight: bold;
+        border: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
