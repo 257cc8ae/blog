@@ -1,18 +1,87 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Blog</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ja">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <% if content_for(:html_title) ? yield(:html_title) : "" != "" %>
+    <%= content_for?(:html_title) ? yield(:html_title) : "" %> - The Lusaca Blog
+    <% else %>
+    The Lusaca Blog
+    <% end %>
+  </title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,700&display=swap"
+    rel="stylesheet">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <header>
-      
-    </header>
-    <%= yield %>
-  </body>
+<body>
+  <header>
+    <div class="header-main">
+      <div class="logo-area">
+        <%= link_to  root_path do %>
+        <span class="logo">
+          The Lusaca Blog
+        </span>
+        <% end %>
+      </div>
+      <nav>
+        <ul>
+          <%= link_to root_path do %>
+          <li>
+            <span>
+              Home
+            </span>
+          </li>
+          <% end %>
+          <%= link_to root_path do %>
+          <li>
+            <span>
+              All Posts
+            </span>
+          </li>
+          <% end %>
+          <%= link_to root_path do %>
+          <li>
+            <span>
+              About
+            </span>
+          </li>
+          <% end %>
+          <%= link_to root_path do %>
+          <li>
+            <span>
+              Diary
+            </span>
+          </li>
+          <% end %>
+          <%= link_to root_path do %>
+          <li>
+            <span>
+              Tags
+            </span>
+          </li>
+          <% end %>
+        </ul>
+        <div class="find_posts_area">
+          <input type="text" placeholder="Search...">
+        </div>
+      </nav>
+
+      <div class="menu-area">
+        <button id="menu-button">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </header>
+  <%= yield %>
+  <%= javascript_pack_tag "main" %>
+  <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+</body>
+
 </html>

@@ -1,0 +1,208 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+html,
+body {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    height: 79px;
+    border-bottom: 1px solid #b5bdc4;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .header-main {
+        width: max-content;
+        height: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .logo-area {
+        flex: 0 0 auto;
+        display: inline-block;
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo {
+            font-family: 'IBM Plex Mono', monospace;
+            line-height: 80px;
+            font-size: 20px;
+            background: #B8050B;
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px 20px;
+        }
+
+        &:hover {
+            .logo {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    nav {
+        flex: 1 1 auto;
+        display: inline-flex;
+
+        .nav-logo-area {
+            display: none;
+        }
+
+        ul {
+            display: inline-flex;
+            margin: 0;
+            padding: 0 40px;
+            width: max-content;
+            flex: 0 0 auto;
+
+            a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            li {
+                flex: 0 0 auto;
+                line-height: 80px;
+                list-style: none;
+                font-family: 'IBM Plex Mono', monospace;
+                padding: 0 20px;
+
+                &:hover {
+                    span {
+                        border-bottom: 2px solid #B8050B;
+
+                    }
+                }
+            }
+        }
+
+        .find_posts_area {
+            flex: 0 0 auto;
+            line-height: 80px;
+            width: max-content;
+            display: inline-block;
+            margin-right: 0;
+
+            input {
+                background: #F9FAFA;
+                border: 1px solid #b5bdc4;
+                height: 27px;
+                padding: 10px 20px;
+                border-radius: 4px;
+                font-family: 'IBM Plex Mono', monospace;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid #B8050B;
+                    background: #fff;
+                }
+
+                &::placeholder {
+                    color: #586069;
+                }
+            }
+        }
+    }
+
+    .menu-area {
+        float: right;
+        display: none;
+    }
+}
+
+@media (max-width: 1060px) {
+    header {
+        height: 60px;
+
+        .header-main {
+            width: 100%;
+            height: 60px;
+
+            .logo-area {
+                margin-left: 10px;
+                line-height: 60px;
+
+                .logo {
+                    font-size: 18px;
+                    line-height: 60px;
+                }
+            }
+
+            .menu-area {
+                position: fixed;
+                top: 0;
+                right: 10px;
+                display: block;
+                padding: 5px 0;
+                z-index: 101;
+
+                button {
+                    color: #000;
+                    background: none;
+                    border: none;
+                    width: 50px;
+                    height: 50px;
+                    font-size: 20px;
+                    line-height: 60px;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+
+        }
+
+        nav {
+            position: fixed;
+            top: 61px;
+            left: 0;
+            height: calc(100%- 60px);
+            width: 100%;
+            background: #fff;
+            display: none;
+            z-index: 100;
+
+            ul {
+                display: block;
+                height: max-content;
+                margin-right: auto;
+                margin-left: auto;
+                width: 100%;
+                padding-left: 0;
+
+                li {
+                    padding-left: 0;
+                    flex: none;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .find_posts_area {
+                width: 100%;
+                text-align: center;
+                display: block;
+            }
+        }
+    }
+}
