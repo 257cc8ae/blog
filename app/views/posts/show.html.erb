@@ -20,3 +20,9 @@
     <% end %>
 </div>
 <%= markdown(@post.content).html_safe %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
+<script>
+    document.querySelectorAll("p code").forEach(function (block, i, ar) {
+        hljs.highlightBlock(block);
+    });
+</script>

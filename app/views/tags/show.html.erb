@@ -1,0 +1,11 @@
+<div class="about-tag">
+    <% if @tag.img != "" %>
+    <div class="about-tag-img-area">
+        <%= image_tag @tag.img %>
+    </div>
+    <% end %>
+    <h1 class="font-ibm">#<%= @tag.name %></h1>
+    <p class="font-inter about-tag-des">
+        <%= @tag.descriptions %>
+    </p>
+</div>

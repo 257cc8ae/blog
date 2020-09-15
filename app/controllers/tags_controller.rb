@@ -7,13 +7,13 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.create params.require(:tag).permit(:name, :descriptions, :image)
+    @tag = Tag.create params.require(:tag).permit(:name, :descriptions, :img)
     redirect_to tag_path(@tag.name)
   end
 
   def show
     @tag = Tag.find_by(name: params[:id])
-    if Tag.find_by(name: params[:id])
+    if Tag.find_by(name: params[:id]) == nil
       redirect_to "/404.html"
     end
   end
@@ -24,7 +24,7 @@ class TagsController < ApplicationController
 
   def update
     @tag = Tag.find(params[:id])
-    @tag.update params.require(:tag).permit(:name, :descriptions, :image)
+    @tag.update params.require(:tag).permit(:name, :descriptions, :img)
     redirect_to tag_path(@tag.name)
   end
 

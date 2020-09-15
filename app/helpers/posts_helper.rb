@@ -12,6 +12,7 @@ module PostsHelper
         xhtml: true,
         lax_html_blocks: true,
         strikethrough: true,
+        highlight: true
       }
       renderer = Redcarpet::Render::HTML.new(options)
       @markdown = Redcarpet::Markdown.new(renderer)

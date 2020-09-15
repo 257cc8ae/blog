@@ -95,9 +95,13 @@
     }
 }
 
-pre code {
+pre code,p code {
     font-size: 20px;
     border-radius: 4px;
+}
+
+p code::first-line {
+    background: #B8050B;
 }
 
 .ap-t {
