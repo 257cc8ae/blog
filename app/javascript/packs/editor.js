@@ -49,3 +49,13 @@ document.getElementById("post-name").addEventListener("blur", function () {
     }).catch(function (response) {
     });
 });
+document.querySelector(".editor-post-title").addEventListener("keyup",function(){
+    document.getElementById("post-title").value= document.querySelector(".editor-post-title").innerText;
+});
+document.querySelector(".editor-post-title").addEventListener("blur",function(){
+    if (document.querySelector(".editor-post-title").innerText != "") {
+        document.querySelector(".editor-post-title").setAttribute("class","val-not-nil editor-post-title");  
+    }else {
+        document.querySelector(".editor-post-title").setAttribute("class","editor-post-title"); 
+    };
+})

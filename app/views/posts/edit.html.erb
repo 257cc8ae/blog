@@ -1,6 +1,6 @@
 <% content_for(:html_title) { "#{@post.title}の編集" } %>
 <div class="editor-area">
-    <%= form_with model: @post do |f| %>
+    <%= form_with model: @post,method: "patch" do |f| %>
     <%= f.text_field :title,class: "editor-post-title", placeholder: "Title" %>
     <%= f.text_field :tags,class: "tag-field", placeholder: "#tag" %>
     <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Input template:(name) or thumbnail image url" %>
@@ -23,7 +23,7 @@
     </div>
     <% end %>
     <div>
-        <h3 class="custom-font">
+        <h3 class="font-ibm">
             Do you need to delete this article?
         </h3>
         <div class="post-btn-area">

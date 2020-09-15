@@ -21,6 +21,7 @@
 html,
 body {
     margin: 0;
+    background: #F9FAFA;
 }
 
 .turbolinks-progress-bar {
@@ -117,7 +118,7 @@ header {
 
             input {
                 background-color: #F9FAFA;
-                border: 1px solid #b5bdc4;
+                border: 2px solid #b5bdc4;
                 height: 27px;
                 padding: 10px 20px;
                 border-radius: 4px;
@@ -127,7 +128,7 @@ header {
 
                 &:focus {
                     outline: none;
-                    border: 1px solid #B8050B;
+                    border: 2px solid #B8050B;
                     background-color: #fff;
                 }
 
@@ -243,18 +244,20 @@ header {
 }
 
 main {
-    margin-top: 81px;
-    width: 95%;
-    max-width: 1000px;
+    margin-top: 100px;
+    width: calc(95% - 20px);
+    max-width: 1020px;
     margin-right: auto;
     margin-left: auto;
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 footer {
     width: 100%;
     height: max-content;
     background: #F9FAFA;
-    margin-top: 20px;
     padding: 20px 0;
     text-align: center;
 
@@ -269,6 +272,7 @@ footer {
             border-radius: 4px;
             padding: 10px 20px;
             font-weight: bold;
+
             &:hover {
                 text-decoration: underline;
             }
@@ -281,12 +285,16 @@ footer {
     }
 }
 
-.custom-font {
+.font-ibm {
     font-family: var(--logo-font-family);
+}
+
+.font-inter {
+    font-family: 'Inter', sans-serif;
 }
 
 @media (max-width: 1060px) {
     main {
-        margin-top: 61px;
+        margin-top: 80px;
     }
 }

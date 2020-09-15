@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
-  before_action :basic_auth, except: :show
+  before_action :basic_auth, except: [:index, :show]
   protect_from_forgery with: :exception
+
+  def index
+    @posts = Post.order(created_at: :desc).page(params[:page])
+  end
 
   def new
     @post = Post.new
@@ -28,7 +32,7 @@ class PostsController < ApplicationController
     redirect_to post_path(@post.name)
   end
 
-  def destroy 
+  def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to root_path

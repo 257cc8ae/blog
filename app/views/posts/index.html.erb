@@ -1,0 +1,22 @@
+<h1 class="font-inter ap-t"><span>All Posts</span></h1>
+<div class="posts" id="posts">
+    <% @posts.each do |post| %>
+    <div class="post">
+        <%= link_to post_path(post.name) do %>
+        <h2 class="font-inter">
+        <% if post.title.include?("\n") %>
+        <%= raw(post.title.gsub!("\n","<br>")) %>
+        <% else %>
+        <%= post.title %>
+        <% end %>
+        </h2>
+        <% end %>
+        <div class="font-ibm created_at">
+            <%= post.created_at.to_s(:long) %>
+        </div>
+    </div>
+    <% end %>
+</div>
+<%= paginate @posts %>
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+<%= javascript_pack_tag "scrool.js" %>
