@@ -1,9 +1,22 @@
 <% content_for(:html_title) { @post.title } %>
-<h1>
+<%= image_tag @post.thumbnail,class: "post-thumbnail" %>
+<div class="font-ibm created_at">
+    <%= @post.created_at.to_s(:long) %>
+</div>
+<h1 class="post-title font-inter">
     <% if @post.title.include?("\n") %>
     <%= raw(@post.title.gsub!("\n","<br>")) %>
     <% else %>
     <%= @post.title %>
     <% end %>
 </h1>
+<div class="font-ibm tags">
+    <% @post.tags.split().each do |tag| %>
+    <%= link_to tag_path(tag) do %>
+    <span class="tag font-bim">
+        #<%= tag %>
+    </span>
+    <% end %>
+    <% end %>
+</div>
 <%= markdown(@post.content).html_safe %>

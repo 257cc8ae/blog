@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_021541) do
+ActiveRecord::Schema.define(version: 2020_09_15_132326) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2020_09_13_021541) do
     t.string "name"
     t.string "thumbnail"
     t.text "content"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.text "descriptions"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

@@ -110,6 +110,13 @@ pre code {
     }
 }
 
+.post-thumbnail {
+    width: calc(100% - 10px);
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .posts {
     width: calc(100% - 20px);
     height: max-content;
@@ -122,23 +129,44 @@ pre code {
         width: calc(100% - 40px);
         height: max-content;
         padding-left: 20px;
+        padding: 20px;
 
         h2 {
             font-weight: 500;
             color: #000;
             font-size: 28px;
+            margin: 15px 0;
             &:hover {
                 color: #0366d6;
                 text-decoration: underline;
             }
         }
-
-        .created_at {
-            color: #586069;
-        }
     }
+
 }
 
 .pagination {
     display: none;
+}
+
+.created_at {
+    color: #586069;
+}
+
+.tags {
+    display: flex;
+    a {
+        flex: 0 0 auto;
+        color: #586069;
+        margin-right: 5px;
+        text-decoration: none;
+        .tag:hover {
+            border-bottom: 1px dashed #b5bdc4;
+        }
+    }
+}
+
+.post-title {
+    margin: 15px 0;
+    font-size: 45px;
 }

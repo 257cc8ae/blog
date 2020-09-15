@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'apis/image'
   resources :posts
+  resources :tags
   get 'home/show'
   get 'apis/image'
   get 'apis/name_check'
