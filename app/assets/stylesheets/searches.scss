@@ -16,3 +16,32 @@
     font-size: 20px;
     margin: 20px 0;
 }
+
+.search_area {
+    width: 95%;
+
+    .search_field {
+        width: calc(100% - 40px);
+        background-color: #F9FAFA;
+        border: 2px solid #b5bdc4;
+        height: 27px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        padding-left: 50px;
+        background: url("/apis/image?n=search") 15px 13px no-repeat;
+        background-size: 20px;
+        font-size: 20px;
+        font-family: 'Inter', sans-serif;
+
+        &:focus {
+            outline: none;
+            border: 2px solid #B8050B;
+            background-color: #fff;
+        }
+
+        &::placeholder {
+            color: #586069;
+            font-family: var(--logo-font-family);
+        }
+    }
+}

@@ -125,6 +125,7 @@ header {
                 padding-left: 50px;
                 background: url("/apis/image?n=search") 15px 13px no-repeat;
                 background-size: 20px;
+                font-family: "Inter",sans-serif;
 
                 &:focus {
                     outline: none;
@@ -194,7 +195,7 @@ header {
             position: fixed;
             top: 61px;
             left: 0;
-            height: calc(100%- 60px);
+            height: calc(100% - 60px);
             width: 100%;
             background: #fff;
             display: none;

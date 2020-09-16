@@ -1,0 +1,15 @@
+<h1 class="font-inter ap-t"><span>All tags</span></h1>
+<div class="posts" id="posts">
+    <% @tags.each do |tag| %>
+    <div class="post">
+        <%= link_to tag_path(tag.name) do %>
+        <h2 class="font-inter">
+            #<%= tag.name %>
+        </h2>
+        <% end %>
+        <div class="font-ibm tags">
+            <%= tag.descriptions %>
+        </div>
+    </div>
+    <% end %>
+</div>

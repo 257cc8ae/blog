@@ -6,6 +6,10 @@ class TagsController < ApplicationController
     @tag = Tag.new
   end
 
+  def index 
+    @tags = Tag.all.page(params[:page])
+  end
+
   def create
     @tag = Tag.create params.require(:tag).permit(:name, :descriptions)
     redirect_to tag_path(@tag.name)
