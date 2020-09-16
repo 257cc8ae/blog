@@ -1,0 +1,39 @@
+<% content_for(:html_title) { "Search results for #{params[:word]}" } %>
+<% content_for(:search_value) { params[:word] } %>
+<h1 class="font-inter ap-t"><span>Search results for <%= params[:word] %><span></h1>
+<% if @posts == [] %>
+<div class="font-ibm not-found">
+    Sorry, no results were found
+</div>
+<% else %>
+<div class="posts" id="posts">
+    <% @posts.each do |post| %>
+    <div class="post">
+        <div class="font-ibm created_at">
+            <%= post.created_at.to_s(:long) %>
+        </div>
+        <%= link_to post_path(post.name) do %>
+        <h2 class="font-inter">
+            <% if post.title.include?("\n") %>
+            <%= raw(post.title.gsub!("\n","<br>")) %>
+            <% else %>
+            <%= post.title %>
+            <% end %>
+        </h2>
+        <% end %>
+        <div class="font-ibm tags">
+            <% post.tags.split().each do |tag| %>
+            <%= link_to tag_path(tag) do %>
+            <span class="tag font-bim">
+                #<%= tag %>
+            </span>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+</div>
+<%= paginate @posts %>
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+<%= javascript_pack_tag "scrool.js" %>
+<% end %>

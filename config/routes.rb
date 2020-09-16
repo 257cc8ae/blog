@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searches', to: "searches#index"
   get 'apis/image'
   resources :posts
   resources :tags
