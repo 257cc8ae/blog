@@ -7,12 +7,13 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.create params.require(:tag).permit(:name, :descriptions, :img)
+    @tag = Tag.create params.require(:tag).permit(:name, :descriptions)
     redirect_to tag_path(@tag.name)
   end
 
   def show
     @tag = Tag.find_by(name: params[:id])
+    @posts = Post.where(['tags LIKE ?', "%#{params[:id]}%"]).page(params[:page])
     if Tag.find_by(name: params[:id]) == nil
       redirect_to "/404.html"
     end
@@ -24,7 +25,7 @@ class TagsController < ApplicationController
 
   def update
     @tag = Tag.find(params[:id])
-    @tag.update params.require(:tag).permit(:name, :descriptions, :img)
+    @tag.update params.require(:tag).permit(:name, :descriptions)
     redirect_to tag_path(@tag.name)
   end
 

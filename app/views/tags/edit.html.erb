@@ -3,7 +3,6 @@
 <%= form_with model: @tag,local: true do |f| %>
 <%= f.text_field :name,placeholder: "Tag name",class: "tag-field" %>
 <%= f.text_area :descriptions,placeholder: "Tag descriptions",class: "tag-field font-ibm" %>
-<%= f.text_field :img,placeholder: "Type tag's image url",class: "tag-field font-ibm" %>
 <div class="right">
     <%= f.submit "Edit this tag",class:"btn-f" %>
 </div>

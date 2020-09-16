@@ -1,11 +1,37 @@
+<% content_for(:html_title) { "\##{@tag.name}" } %>
 <div class="about-tag">
-    <% if @tag.img != "" %>
-    <div class="about-tag-img-area">
-        <%= image_tag @tag.img %>
-    </div>
-    <% end %>
-    <h1 class="font-ibm">#<%= @tag.name %></h1>
-    <p class="font-inter about-tag-des">
+    <h1 class="font-inter ap-t"><span>#<%= @tag.name %></span></h1>
+    <p class="font-ibm about-tag-des">
         <%= @tag.descriptions %>
     </p>
 </div>
+<div class="posts" id="posts">
+    <% @posts.each do |post| %>
+    <div class="post">
+        <div class="font-ibm created_at">
+            <%= post.created_at.to_s(:long) %>
+        </div>
+        <%= link_to post_path(post.name) do %>
+        <h2 class="font-inter">
+            <% if post.title.include?("\n") %>
+            <%= raw(post.title.gsub!("\n","<br>")) %>
+            <% else %>
+            <%= post.title %>
+            <% end %>
+        </h2>
+        <% end %>
+        <div class="font-ibm tags">
+            <% post.tags.split().each do |tag| %>
+            <%= link_to tag_path(tag) do %>
+            <span class="tag font-bim">
+                #<%= tag %>
+            </span>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+</div>
+<%= paginate @posts %>
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+<%= javascript_pack_tag "scrool.js" %>
