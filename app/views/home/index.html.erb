@@ -30,20 +30,19 @@
     </div>
 </div>
 <div class="tp-tags">
-    <h2 class="font-ibm ap-t"><span>Tags</span></h2>
-    <div class="tp-tags-cards-area">
-        <% @tags.each do |tag| %>
-        <%= link_to tag_path(tag.name) do %>
-        <div class="tag-card">
-            <h3 class="font-inter">#<%= tag.name %></h3>
-        </div>
-        <% end %>
+    <h2 class="font-inter ap-t"><span>Find posts.</span></h2>
+    <div class="search_area">
+        <%= form_with(url: "/searches",method: "get", local: true) do |form| %>
+        <%= form.text_field :word,placeholder: "Search...",value: params[:word],class: "search_field" %>
         <% end %>
     </div>
+    <h3 class="font-ibm">
+        Or do you want to search by tags?
+    </h3>
     <div class="right">
         <%= link_to tags_path do %>
         <button class="btn-f">
-            View all tags &gt;&gt;
+            Find by tags &gt;&gt;
         </button>
         <% end %>
     </div>
