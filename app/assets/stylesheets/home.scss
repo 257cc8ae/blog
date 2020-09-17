@@ -1,34 +1,90 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.ht {
+.tp-posts {
     width: 100%;
     height: max-content;
-    background: -moz-linear-gradient(top left, #1E1A1E, #0A070A);
-    background: -webkit-linear-gradient(top left, #1E1A1E, #0A070A);
-    background: linear-gradient(to bottom right, #1E1A1E, #0A070A);
 
-    .ht-icon {
-        flex: 0 0 auto;
-        text-align: center;
-        padding: 20px 0;
-
-        h2 {
-            color: #ffffff;
-            margin-bottom: 0;
-            margin-top: 15px;
-            font-family: 'Inter', sans-serif;
-        }
+    .post {
+        width: calc(100% - 40px);
+        height: max-content;
+        padding-left: 20px;
+        padding: 20px;
 
         img {
-            border-radius: 50%;
-            padding: 10px;
-            border: 5px solid #40D04F;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+            width: 100%;
+        }
+
+        .created_at {
+            color: #586069;
+        }
+
+        .tags {
+            display: flex;
+
+            a {
+                flex: 0 0 auto;
+                color: #586069;
+                margin-right: 5px;
+                text-decoration: none;
+
+                .tag:hover {
+                    border-bottom: 1px dashed #b5bdc4;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #000;
+            font-size: 35px;
+            margin: 15px 0;
+
+            &:hover {
+                color: #0366d6;
+                text-decoration: underline;
+            }
         }
     }
 
-    .bio {
-        flex: 0 0 auto;
+}
+
+.tp-tags {
+    width: 100%;
+    height: max-content;
+
+    .tp-tags-cards-area {
+        width: 100%;
+        overflow-x: scroll;
+        display: flex;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        a {
+            text-decoration: none;
+        }
+
+        .tag-card {
+            flex: 0 0 auto;
+            width: 246px;
+            padding: 20px;
+            margin: 24px;
+            border: 1px solid #b5bdc4;
+            border-radius: 4px;
+            color: #000;
+            &:hover {
+                h3 {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .tp-tags-cards-area::-webkit-scrollbar {
+        display: none;
     }
 }

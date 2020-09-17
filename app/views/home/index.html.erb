@@ -1,0 +1,50 @@
+<div class="tp-posts">
+    <% @posts.each_with_index do |post,i| %>
+    <div class="post">
+        <% if i == 0 %>
+        <%= image_tag  post.thumbnail %>
+        <% end %>
+        <div class="font-ibm created_at">
+            <%= post.created_at.to_s(:long) %>
+        </div>
+        <%= link_to post_path(post.name) do %>
+        <h2><%= post.title %></h2>
+        <% end %>
+        <div class="font-ibm tags">
+            <% post.tags.split().each do |tag| %>
+            <%= link_to tag_path(tag) do %>
+            <span class="tag font-bim">
+                #<%= tag %>
+            </span>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+    <div class="right">
+        <%= link_to posts_path do %>
+        <button class="btn-f">
+            View all posts &gt;&gt;
+        </button>
+        <% end %>
+    </div>
+</div>
+<div class="tp-tags">
+    <h2 class="font-ibm ap-t"><span>Tags</span></h2>
+    <div class="tp-tags-cards-area">
+        <% @tags.each do |tag| %>
+        <%= link_to tag_path(tag.name) do %>
+        <div class="tag-card">
+            <h3 class="font-inter">#<%= tag.name %></h3>
+        </div>
+        <% end %>
+        <% end %>
+    </div>
+    <div class="right">
+        <%= link_to tags_path do %>
+        <button class="btn-f">
+            View all tags &gt;&gt;
+        </button>
+        <% end %>
+    </div>
+</div>

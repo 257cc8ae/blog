@@ -76,6 +76,7 @@ header {
     nav {
         flex: 1 1 auto;
         display: inline-flex;
+        display: block;
 
         .nav-logo-area {
             display: none;
@@ -150,6 +151,7 @@ header {
 @media (max-width: 1060px) {
     header {
         height: 60px;
+        width: 100vw;
 
         .header-main {
             width: 100%;
@@ -195,7 +197,7 @@ header {
             position: fixed;
             top: 61px;
             left: 0;
-            height: calc(100% - 60px);
+            height: max-content;
             width: 100%;
             background: #fff;
             display: none;
@@ -222,6 +224,15 @@ header {
                 text-align: center;
                 display: block;
             }
+
+            .find_posts_area_focus {
+                background: #fff;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+                border-bottom: 1px solid #b5bdc4;
+            }
         }
     }
 }
@@ -241,6 +252,9 @@ header {
         text-decoration: underline;
         color: #fff;
         background: #B8050B;
+    }
+    &:focus {
+        outline: none;
     }
 }
 
@@ -292,6 +306,16 @@ footer {
 
 .font-inter {
     font-family: 'Inter', sans-serif;
+}
+
+.ap-t {
+    font-size: 48px;
+    padding: 20px 0 20px 10px;
+    margin: 0;
+
+    span {
+        border-bottom: dashed #b5bdc4 1px;
+    }
 }
 
 @media (max-width: 1060px) {

@@ -1,16 +1,6 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.ap-t {
-    font-size: 48px;
-    padding: 20px 0 20px 10px;
-    margin: 0;
-
-    span {
-        border-bottom: dashed #b5bdc4 1px;
-    }
-}
-
 .tag-field {
     width: calc(100% - 60px);
     display: block;
