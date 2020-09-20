@@ -13,10 +13,11 @@
 
         img {
             width: 100%;
+            border-radius: 4px;
         }
 
         .created_at {
-            color: #586069;
+            color: #959da5;
         }
 
         .tags {
@@ -24,12 +25,13 @@
 
             a {
                 flex: 0 0 auto;
-                color: #586069;
+                color: #959da5;
                 margin-right: 5px;
                 text-decoration: none;
 
                 .tag:hover {
                     border-bottom: 1px dashed #b5bdc4;
+                    color: #586069;
                 }
             }
         }
@@ -38,16 +40,20 @@
             text-decoration: none;
         }
 
-        h2 {
+        .post-title {
+            margin: 10px 0;
+            font-size: 35px;
             font-weight: bold;
             color: #000;
-            font-size: 35px;
-            margin: 15px 0;
 
             &:hover {
                 color: #0366d6;
                 text-decoration: underline;
             }
+        }
+
+        .post-show-created_at {
+            margin-top: 15px;
         }
     }
 
@@ -136,10 +142,12 @@ pre {
     font-size: 20px;
     border-radius: 4px;
     color: #dcdcdc;
+
     .cmnt {
         color: #57a64a;
         font-style: italic;
     }
+
     .mark {
         color: #569cd6;
     }

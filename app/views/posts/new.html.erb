@@ -1,11 +1,16 @@
 <% content_for(:html_title) { '記事の新規作成' } %>
 <div class="editor-area">
     <%= form_with model: @post do |f| %>
+    <div class="file-field">
+        <label class="file-field-area btn-f">
+            <%= f.file_field :thumbnail %>
+            Selecting a thumbnail image.
+        </label>
+    </div>
     <div class="editor-post-title" contenteditable="true">
     </div>
     <%= f.hidden_field :title,id: "post-title" %>
-    <%= f.text_field :tags,class: "tag-field", placeholder: "#tag" %>
-    <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Input template:(name) or thumbnail image url" %>
+    <%= f.text_field :tags,class: "tag-field", placeholder: "Separate them with spaces.(ex: sample exaple)" %>
     <%= f.text_field :name,class: "tag-field",id: "post-name", placeholder: "/posts/xxx" %>
     <div class="editor-tab">
         <button type="button" class="active" id="editor_button">
@@ -17,11 +22,11 @@
     </div>
     <div id="editor"></div>
     <div class="content-preview">
-    preview
+        preview
     </div>
     <%= f.hidden_field :content,id: "editor_value" %>
     <div class="post-btn-area">
-    <%= f.submit "Post",class:"btn-f" %>
+        <%= f.submit "Post",class:"btn-f" %>
     </div>
     <% end %>
 </div>

@@ -4,6 +4,17 @@
 .editor-area {
     padding-top: 20px;
 
+    .file-field {
+        text-align: center;
+        margin-bottom: 20px;
+
+        .file-field-area {
+            input[type="file"] {
+                display: none;
+            }
+        }
+    }
+
     .editor-tab {
         margin-top: 20px;
         width: 100%;
@@ -46,18 +57,21 @@
     }
 
     .editor-post-title {
-        width: 100%;
-        font-size: 28px;
+        width: calc(100% - 40px);
+        font-size: 35px;
+        padding: 0 20px;
         font-weight: bold;
         border: none;
+        font-family: "Inter", sans-serif;
+
         &::before {
-            font-family: var(--logo-font-family);
             content: "Title";
             color: #586069;
         }
 
         &:focus {
             outline: none;
+
             &::before {
                 content: none;
             }
@@ -71,7 +85,7 @@
     }
 
     .tag-field {
-        width: 100%;
+        width: calc(100% - 40px);
         font-size: 16px;
         font-weight: bold;
         border: none;
@@ -95,7 +109,8 @@
     }
 }
 
-pre code,p code {
+pre code,
+p code {
     font-size: 20px;
     border-radius: 4px;
 }
@@ -129,7 +144,8 @@ p code::first-line {
             font-weight: 500;
             color: #000;
             font-size: 28px;
-            margin: 15px 0;
+            margin: 10px 0;
+
             &:hover {
                 color: #0366d6;
                 text-decoration: underline;
@@ -144,23 +160,31 @@ p code::first-line {
 }
 
 .created_at {
-    color: #586069;
+    color: #959da5;
 }
 
 .tags {
     display: flex;
+    color: #959da5;
+
     a {
         flex: 0 0 auto;
-        color: #586069;
+        color: #959da5;
         margin-right: 5px;
         text-decoration: none;
+
         .tag:hover {
             border-bottom: 1px dashed #b5bdc4;
+            color: #586069;
         }
     }
 }
 
 .post-title {
-    margin: 15px 0;
+    margin: 10px 0;
     font-size: 45px;
+}
+
+.post-show-created_at {
+    margin-top: 15px;
 }

@@ -1,6 +1,6 @@
 <% content_for(:html_title) { @post.title } %>
 <%= image_tag @post.thumbnail,class: "post-thumbnail" %>
-<div class="font-ibm created_at">
+<div class="font-ibm created_at post-show-created_at">
     <%= @post.created_at.to_s(:long) %>
 </div>
 <h1 class="post-title font-inter">
@@ -19,7 +19,9 @@
     <% end %>
     <% end %>
 </div>
-<%= markdown(@post.content).html_safe %>
+<div class="content-area font-inter">
+    <%= markdown(@post.content).html_safe %>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 <script>
     document.querySelectorAll("p code").forEach(function (block, i, ar) {
