@@ -1,3 +1,8 @@
+<div class="search_area">
+<%= form_with(url: "/pictures",method: "get", local: true) do |form| %>
+    <%= form.text_field :q,placeholder: "Search...",value: params[:word],class: "search_field" %>
+<% end %>
+</div>
 <div class="pictures">
     <% @pictures.each do |picture| %>
     <div>

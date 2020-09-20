@@ -1,6 +1,11 @@
 class PicturesController < ApplicationController
     def index
-        @pictures = Picture.order(created_at: :desc).page(params[:page])
+        if params[:q] == nil then
+            @pictures = Picture.order(created_at: :desc).page(params[:page])
+        else
+            @pictures = Picture.where(['name LIKE ?', "%#{params[:q]}%"]).page(params[:page])
+        end
+        
     end
     def new
         @picture = Picture.new
