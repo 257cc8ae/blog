@@ -1,0 +1,19 @@
+<% content_for(:html_title) { 'The Lusaca Blog Asset Pipeline System' } %>
+<div class="img-show-area">
+    <% if @picture.image.attached? %>
+    <%= image_tag @picture.image %>
+    <% end %>
+    <div class="center">
+        <input type="url" class="text-field" value="/apis/active_storage?id=<%= @picture.id %>" id="img-url">
+        <button class="btn-f" id="copyurl">
+            COPY URL
+        </button>
+    </div>
+</div>
+<script>
+    document.getElementById("copyurl").addEventListener("click", function () {
+        const e = document.getElementById("img-url");
+        e.select();
+        document.execCommand("copy");
+    });
+</script>

@@ -1,0 +1,68 @@
+// Place all the styles related to the pictures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.file-field {
+    margin-bottom: 20px;
+
+    .file-field-area {
+        input[type="file"] {
+            display: none;
+        }
+    }
+}
+
+.text-field {
+    width: calc(100% - 40px);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    font-family: var(--logo-font-family);
+    margin-bottom: 20px;
+    border: 2px solid #b5bdc4;
+    padding: 10px 20px;
+    border-radius: 4px;
+
+    &:focus {
+        outline: none;
+        border-color: #B8050B;
+    }
+}
+
+.img-show-area {
+    width: 100%;
+    text-align: center;
+
+    img {
+        max-width: calc(100% - 2px);
+        border: 1px solid #b5bdc4;
+    }
+}
+
+table {
+    margin-right: auto;
+    margin-left: auto;
+
+    tr {
+        display: flex;
+
+        td {
+            flex: 0 0 auto;
+            border: 2px solid #b5bdc4;
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+
+        td:last-child {
+            border-left: none;
+        }
+    }
+
+    tr:last-child {
+        border-top: none;
+    }
+
+}
+
+.center {
+    text-align: center;
+}

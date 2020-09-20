@@ -1,0 +1,16 @@
+<% content_for(:html_title) { 'The Lusaca Blog Asset Pipeline System' } %>
+<h1 class="font-inter"><span>UPLOAD IMAGES</span></h1>
+<%= form_with model: @picture,local: true do |f| %>
+<div>
+<%= f.text_field :name,class: "text-field", placeholder: "Name" %>
+</div>
+<div class="file-field">
+    <label class="file-field-area btn-f">
+        <%= f.file_field :image %>
+        Select an image
+    </label>
+</div>
+<div class="right">
+<%= f.submit "Send",class: "btn-f" %>
+</div>
+<% end %>
