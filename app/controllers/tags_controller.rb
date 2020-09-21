@@ -43,7 +43,7 @@ class TagsController < ApplicationController
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
-      username == "user" && password == "password"
+      username == Rails.application.credentials.dig(:basic, :username) && password == Rails.application.credentials.dig(:basic, :password)
     end
   end
 end
