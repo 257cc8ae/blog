@@ -4,7 +4,7 @@
     <%= image_tag @picture.image %>
     <% end %>
     <div class="center">
-        <input type="url" class="text-field" value="/apis/active_storage?id=<%= @picture.id %>" id="img-url">
+        <input type="url" class="text-field" value="<%= request.protocol %><%= request.host %>/apis/active_storage?id=<%= @picture.id %>" id="img-url">
         <button class="btn-f" id="copyurl">
             COPY URL
         </button>

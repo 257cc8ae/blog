@@ -1,12 +1,7 @@
 <% content_for(:html_title) { "#{@post.title}の編集" } %>
 <div class="editor-area">
     <%= form_with model: @post,method: "patch" do |f| %>
-    <div class="file-field">
-        <label class="file-field-area btn-f">
-            <%= f.file_field :thumbnail %>
-            Selecting a thumbnail image.
-        </label>
-    </div>
+    <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Thumbnail URL" %>
     <%= f.text_field :title,class: "editor-post-title", placeholder: "Title" %>
     <%= f.text_field :tags,class: "tag-field", placeholder: "Separate them with spaces.(ex: sample exaple)" %>
     <%= f.text_field :name,class: "tag-field",id: "post-name", placeholder: "/posts/xxx" %>

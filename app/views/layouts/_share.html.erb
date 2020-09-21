@@ -1,0 +1,33 @@
+<div class="share-area">
+    <h3 class="font-ibm"><span>Share</span></h3>
+    <div class="share-buttons">
+        <%= link_to "https://twitter.com/share?url=#{short_url(request.url)}&text=#{text}&via=Lusaca__",target: "_blank" do %>
+        <button class="btn-f">
+            <ion-icon name="logo-twitter"></ion-icon>Twitter
+        </button>
+        <% end %>
+        <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{short_url(request.url)}",target: "_blank" do %>
+        <button class="btn-f">
+            <ion-icon name="logo-facebook"></ion-icon>Facebook
+        </button>
+        <% end %>
+        <input type="hidden" value="<%= short_url(request.url) %>" id="url">
+        <button class="btn-f" id="copyurl">
+            <ion-icon name="copy-outline"></ion-icon>Copy Link
+        </button>
+    </div>
+</div>
+<script>
+    document.getElementById("copyurl").addEventListener("click", function () {
+        const str = "<%= short_url(request.url) %>";
+
+        const listener = function (e) {
+
+            e.clipboardData.setData("text/plain", str);
+            e.preventDefault();
+            document.removeEventListener("copy", listener);
+        }
+        document.addEventListener("copy", listener);
+        document.execCommand("copy");
+    });
+</script>

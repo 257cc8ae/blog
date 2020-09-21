@@ -1,12 +1,7 @@
 <% content_for(:html_title) { '記事の新規作成' } %>
 <div class="editor-area">
     <%= form_with model: @post do |f| %>
-    <div class="file-field">
-        <label class="file-field-area btn-f">
-            <%= f.file_field :thumbnail %>
-            Selecting a thumbnail image.
-        </label>
-    </div>
+    <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Thumbnail URL" %>
     <div class="editor-post-title" contenteditable="true">
     </div>
     <%= f.hidden_field :title,id: "post-title" %>

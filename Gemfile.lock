@@ -168,6 +168,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    shortener (0.8.2)
+      voight_kampff (~> 1.1.2)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -188,6 +190,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    voight_kampff (1.1.4)
+      rack (>= 1.4, < 3.0)
     web-console (4.0.4)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -224,6 +228,7 @@ DEPENDENCIES
   redcarpet
   sass-rails (>= 6)
   selenium-webdriver
+  shortener
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

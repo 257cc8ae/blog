@@ -1,4 +1,5 @@
 <% content_for(:html_title) { @post.title } %>
+<% content_for(:ogp_image) { @post.thumbnail } %>
 <%= image_tag @post.thumbnail,class: "post-thumbnail" %>
 <div class="font-ibm created_at post-show-created_at">
     <%= @post.created_at.to_s(:long) %>
@@ -22,6 +23,7 @@
 <div class="content-area font-inter">
     <%= markdown(@post.content).html_safe %>
 </div>
+<%= render partial: "/layouts/share", locals: { text: "#{@post.title} - The Lusaca Blog" } %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 <script>
     document.querySelectorAll("p code").forEach(function (block, i, ar) {

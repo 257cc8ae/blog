@@ -126,7 +126,7 @@ header {
                 padding-left: 50px;
                 background: url("/apis/image?n=search") 15px 13px no-repeat;
                 background-size: 20px;
-                font-family: "Inter",sans-serif;
+                font-family: "Inter", sans-serif;
 
                 &:focus {
                     outline: none;
@@ -253,6 +253,7 @@ header {
         color: #fff;
         background: #B8050B;
     }
+
     &:focus {
         outline: none;
     }
@@ -315,6 +316,39 @@ footer {
 
     span {
         border-bottom: dashed #b5bdc4 1px;
+    }
+}
+
+.share-area {
+    h3 {
+        color: #586069;
+        font-weight: 500;
+        font-size: 25px;
+        margin-bottom: 15px;
+        text-align: center;
+
+        span {
+            border-bottom: #b5bdc4 dashed 1px;
+        }
+
+    }
+
+    .share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .btn-f {
+            flex: 0 0 auto;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            ion-icon {
+                font-size: 25px;
+                vertical-align: -5px;
+                margin-right: 10px;
+            }
+        }
     }
 }
 

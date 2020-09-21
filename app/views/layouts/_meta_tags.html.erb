@@ -1,0 +1,29 @@
+<title>
+    <% if content_for(:html_title) ? yield(:html_title) : "" != "" %>
+    <%= content_for?(:html_title) ? yield(:html_title) : "" %> - The Lusaca Blog
+    <% else %>
+    The Lusaca Blog
+    <% end %>
+</title>
+<meta property="og:url" content="<%= request.url %>" />
+<% if content_for(:html_title) ? yield(:html_title) : "" != "" %>
+<meta property="og:title" content="<%= content_for?(:html_title) ? yield(:html_title) : "" %>" />
+<% else %>
+<meta property="og:title" content="The Lusaca Blog" />
+<% end %>
+<% if controller_name == "home" && action_name == "index" %>
+<meta property="og:type" content="website">
+<% else %>
+<meta property="og:type" content="article">
+<% end %>
+<meta property="og:description" content="記事の抜粋" />
+<% if content_for(:ogp_image) ? yield(:ogp_image) : "" != "" %>
+<meta property="og:image" content="<%= content_for(:ogp_image) ? yield(:ogp_image) : "" %>" />
+<% else %>
+<meta property="og:image" content="<%= request.protocol %><%= request.host %>/apis/image?n=ogp.png" />
+<% end %>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@Lusaca__" />
+<meta property="og:site_name" content="The Lusaca Blog" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="fb:app_id" content="252733719325568" />
