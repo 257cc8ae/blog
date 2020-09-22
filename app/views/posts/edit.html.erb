@@ -2,7 +2,14 @@
 <div class="editor-area">
     <%= form_with model: @post,method: "patch" do |f| %>
     <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Thumbnail URL" %>
-    <%= f.text_field :title,class: "editor-post-title", placeholder: "Title" %>
+    <div class="editor-post-title" contenteditable="true">
+        <% if @post.title.include?("\n") %>
+        <%= raw(@post.title.gsub!("\n","<br>")) %>
+        <% else %>
+        <%= @post.title %>
+        <% end %>
+    </div>
+    <%= f.hidden_field :title,id: "post-title" %>
     <%= f.text_field :tags,class: "tag-field", placeholder: "Separate them with spaces.(ex: sample exaple)" %>
     <%= f.text_field :name,class: "tag-field",id: "post-name", placeholder: "/posts/xxx" %>
     <div class="editor-tab">
