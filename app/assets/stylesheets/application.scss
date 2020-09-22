@@ -298,6 +298,14 @@ footer {
     .copyright {
         font-family: var(--logo-font-family);
         text-align: center;
+    } 
+    a {
+        color: #586069;
+        text-decoration: none;
+        margin-bottom: 5px;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
