@@ -16,7 +16,13 @@
 <% else %>
 <meta property="og:type" content="article">
 <% end %>
-<meta property="og:description" content="記事の抜粋" />
+<% if content_for(:page_description) ? yield(:page_description) : "" != "" %>
+<meta property="og:description" content="<%= content_for(:page_description) ? yield(:page_description) : "" %>" />
+<meta name="description" content="<%= content_for(:page_description) ? yield(:page_description) : "" %>">
+<% else %>
+<meta property="og:description" content="This site is The Lusaca Blog" />
+<meta name="description" content="This is The Lusaca Blog">
+<% end %>
 <% if content_for(:ogp_image) ? yield(:ogp_image) : "" != "" %>
 <meta property="og:image" content="<%= content_for(:ogp_image) ? yield(:ogp_image) : "" %>" />
 <% else %>

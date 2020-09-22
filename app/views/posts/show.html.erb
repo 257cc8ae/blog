@@ -1,5 +1,6 @@
 <% content_for(:html_title) { @post.title } %>
 <% content_for(:ogp_image) { @post.thumbnail } %>
+<% content_for(:page_description) { @post.content } %>
 <%= image_tag @post.thumbnail,class: "post-thumbnail" %>
 <div class="font-ibm created_at post-show-created_at">
     <%= @post.created_at.to_s(:long) %>

@@ -1,5 +1,6 @@
 <% content_for(:html_title) { "Search results for #{params[:word]}" } %>
 <% content_for(:search_value) { params[:word] } %>
+<% content_for(:page_description) { "Search results for \"#{params[:word]}\"" } %>
 <div class="search_area">
 <%= form_with(url: "/searches",method: "get", local: true) do |form| %>
 <%= form.text_field :word,placeholder: "Search...",value: params[:word],class: "search_field" %>
