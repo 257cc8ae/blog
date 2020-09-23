@@ -30,7 +30,7 @@ preview_button.addEventListener("click", function () {
         hljs.highlightBlock(block);
     });
 });
-document.getElementById("editor").addEventListener("keyup",function(){
+document.getElementById("editor").addEventListener("keyup", function () {
     document.getElementById("editor_value").value = editor.getValue()
 });
 document.getElementById("post-name").addEventListener("blur", function () {
@@ -43,19 +43,24 @@ document.getElementById("post-name").addEventListener("blur", function () {
                     alert(`${document.getElementById("post-name").value}は既に使用されています。違うものにしてください。`);
                 };
             });
-            
+
         } else {
         };
     }).catch(function (response) {
     });
 });
-document.querySelector(".editor-post-title").addEventListener("keyup",function(){
-    document.getElementById("post-title").value= document.querySelector(".editor-post-title").innerText;
+if (document.querySelector(".editor-post-title").innerText != "") {
+    document.querySelector(".editor-post-title").setAttribute("class", "val-not-nil editor-post-title");
+} else {
+    document.querySelector(".editor-post-title").setAttribute("class", "editor-post-title");
+};
+document.querySelector(".editor-post-title").addEventListener("keyup", function () {
+    document.getElementById("post-title").value = document.querySelector(".editor-post-title").innerText;
 });
-document.querySelector(".editor-post-title").addEventListener("blur",function(){
+document.querySelector(".editor-post-title").addEventListener("blur", function () {
     if (document.querySelector(".editor-post-title").innerText != "") {
-        document.querySelector(".editor-post-title").setAttribute("class","val-not-nil editor-post-title");  
-    }else {
-        document.querySelector(".editor-post-title").setAttribute("class","editor-post-title"); 
+        document.querySelector(".editor-post-title").setAttribute("class", "val-not-nil editor-post-title");
+    } else {
+        document.querySelector(".editor-post-title").setAttribute("class", "editor-post-title");
     };
 })
