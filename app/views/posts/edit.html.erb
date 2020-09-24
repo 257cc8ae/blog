@@ -1,6 +1,7 @@
 <% content_for(:html_title) { "#{@post.title}の編集" } %>
 <div class="editor-area">
-    <%= form_with model: @post do |f| %>
+edit
+    <%= form_with model: @post,method: :put,local: "true" do |f| %>
     <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Thumbnail URL" %>
     <div class="editor-post-title" contenteditable="true">
         <% if @post.title.include?("\n") %>
