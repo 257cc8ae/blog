@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create params.require(:post).permit(:title, :thumbnail, :content, :name, :tags)
+    @post = Post.create params.require(:post).permit(:title, :thumbnail, :content, :name, :tags, :description)
     redirect_to post_path(@post.name)
   end
 
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update params.require(:post).permit(:title, :thumbnail, :content, :name, :tags)
+    @post.update params.require(:post).permit(:title, :thumbnail, :content, :name, :tags, :description)
     redirect_to post_path(@post.name)
   end
 

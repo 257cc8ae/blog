@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_091701) do
+ActiveRecord::Schema.define(version: 2020_09_25_224310) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_091701) do
     t.string "name"
     t.text "content"
     t.string "thumbnail"
+    t.text "description"
   end
 
   create_table "shortened_urls", force: :cascade do |t|
