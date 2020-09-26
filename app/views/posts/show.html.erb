@@ -21,13 +21,14 @@
     <% end %>
     <% end %>
 </div>
-<div class="content-area font-inter" id="content-area">
+<div class="content-area font-inter">
 </div>
 <%= render partial: "/layouts/share", locals: { text: "#{@post.title} - The Lusaca Blog" } %>
 <script src="https://cdn.rawgit.com/chjj/marked/master/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 <script>
-    document.getElementById("content-area").innerHTML = marked("<%= @post.content %>");
+    const content_area = document.querySelector(".content-area");
+    content_area.innerHTML = marked("<%= @post.content %>");
     document.querySelectorAll("p code").forEach(function (block, i, ar) {
         hljs.highlightBlock(block);
     });
