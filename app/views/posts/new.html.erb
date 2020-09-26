@@ -1,6 +1,6 @@
 <% content_for(:html_title) { '記事の新規作成' } %>
 <div class="editor-area">
-    <%= form_with model: @post do |f| %>
+    <%= form_with model: @post,local: true do |f| %>
     <%= f.text_field :thumbnail,class: "tag-field", placeholder: "Thumbnail URL" %>
     <div class="editor-post-title" contenteditable="true">
     </div>
