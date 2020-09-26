@@ -28,7 +28,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 <script>
     const content_area = document.querySelector(".content-area");
-    content_area.innerHTML = marked("<%= @post.content %>");
+    content_area.innerHTML = marked(`<%= @post.content %>`);
     document.querySelectorAll("p code").forEach(function (block, i, ar) {
         hljs.highlightBlock(block);
     });
