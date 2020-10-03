@@ -21,8 +21,8 @@
     <% end %>
     <% end %>
 </div>
-<div class="content-area font-inter">
-    <%= markdown(@post.content).html_safe %>
+<div class="content-area font-inter markdown">
+    <%= render_markdown(@post.content).html_safe %>
 </div>
 <%= render partial: "/layouts/share", locals: { text: "#{@post.title} - The Lusaca Blog" } %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
