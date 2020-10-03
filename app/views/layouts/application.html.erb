@@ -11,13 +11,11 @@
   <%= render "/layouts/favicons" %>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,700&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs2015.min.css" onload="this.media='all'">
   <link href="https://rsms.me/inter/inter.css" rel="stylesheet" media="print" onload="this.media='all'">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <% if controller_name == "posts" %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/vs2015.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
-  <% end %>
   <% if request.host != "the-lusaca-blog.herokuapp.com" %>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139653712-3"></script>
   <script>
