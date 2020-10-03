@@ -40,6 +40,12 @@ module PostsHelper
   end
 
   def render_markdown(t)
+    print("\e[1m")
+    print("\e[32m")
+    puts "[Render Markdown Engine] "
+    print("\e[31m")
+    p "We started render the markdown code."
+    print("\e[0m")
     t = t.gsub("<", "&lt;").gsub(">", "&gt;")
     cs = t.split("\n")
     rs = ""
@@ -100,7 +106,7 @@ module PostsHelper
           quote_n = e.split(" ")[0].scan("&gt;").length
           bq_start = "<blockquote><p>" * quote_n
           bq_end = "</blockquote></p>" * quote_n
-          e = bq_start + content + bq_end
+          e = "bq_start + content + bq_end"
           rs += e
         else
           rs += decoration(e) + "<br>"
@@ -112,6 +118,12 @@ module PostsHelper
         rs += e + "<br>"
       end
     end
+    print("\e[1m")
+    print("\e[32m")
+    puts "[Render Markdown Engine] "
+    print("\e[34m")
+    p "We finished render the markdown code."
+    print("\e[0m")
     return rs
   end
 end

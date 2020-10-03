@@ -257,9 +257,14 @@
         padding: 2px 5px;
     }
 
+    pre {
+        padding: 5px;
+        height: max-content;
+    }
+
     .hljs {
         border-radius: 4px;
-        font-size: 15px;
+        font-size: 17px;
         background: #1e1e1e;
         color: #dcdcdc;
     }
