@@ -36,6 +36,15 @@ module PostsHelper
         now_em = true
       end
     end
+    while t.match(/\`/)
+      if now_code
+        t = t.sub("`","</code>")
+        now_code = false
+      else
+        t = t.sub("`","<code class='lm-c'>")
+        now_code = true
+      end
+    end
     return t
   end
 
@@ -101,12 +110,13 @@ module PostsHelper
           tw_iframe_url = "https://platform.twitter.com/embed/index.html?dnt=false&embedId=twitter-widget-1&frame=false&hideCard=false&hideThread=false&id=#{tw_id}&lang=jawidgetsVersion=ed20a2b%3A1601588405575&width=550px"
           tw_ele = "<div class=\"iframe-twitter\"><iframe loading=\"lazy\" src=\"#{iframe_url}\" frameborder=\"0\" scrolling=\"no\"></iframe></div>"
           rs += tw_ele
-        when /&gt;*\s.*/
-          content = e.split(" ")[1]
+        when /&gt;* .*/
+          content = e.split(" ",2)[1]
           quote_n = e.split(" ")[0].scan("&gt;").length
           bq_start = "<blockquote><p>" * quote_n
           bq_end = "</blockquote></p>" * quote_n
-          e = "bq_start + content + bq_end"
+          puts bq_start
+          e = bq_start + content + bq_end
           rs += e
         else
           rs += decoration(e) + "<br>"
@@ -115,7 +125,7 @@ module PostsHelper
         now_code = false
         rs += "</code></pre>"
       else
-        rs += e + "<br>"
+        rs += "<div>" + e + "</div>"
       end
     end
     print("\e[1m")
