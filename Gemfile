@@ -62,3 +62,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'redcarpet'
 gem 'kaminari'
 gem 'shortener'
+gem 'rack-cors'

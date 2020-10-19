@@ -17,9 +17,16 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(name: params[:id])
-    if Post.find_by(name: params[:id]) == nil
-      redirect_to "/404.html"
-    end
+    content = {
+      "title": @post.title,
+      "date": @post.created_at.to_s(:long),
+      "ogp_image": @post.thumbnail,
+      "content": helpers.render_markdown(@post.content),
+      "tags": @post.tags.split().each do |tag|
+        tag
+      end,
+    }
+    render :json => content
   end
 
   def edit
