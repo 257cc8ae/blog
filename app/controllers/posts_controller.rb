@@ -3,7 +3,27 @@ class PostsController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page])
+    posts = Post.order(created_at: :desc).page(params[:page])
+    posts_a = []
+    
+    posts.each do |post|
+      tags = []
+      post.tags.split().each do |tag|
+        tags.push(tag)
+      end
+      rs = {
+        "title": post.title,
+        "date": post.created_at.to_s(:long),
+        "tags": tags,
+        "name": post.name
+      }
+      posts_a.push(rs)
+    end
+    response = {
+      "next_page": posts.next_page,
+      "posts": posts_a
+    }
+    render :json => response
   end
 
   def new
@@ -20,7 +40,7 @@ class PostsController < ApplicationController
     content = {
       "title": @post.title,
       "date": @post.created_at.to_s(:long),
-      "ogp_image": @post.thumbnail,
+      "thumbnail": @post.thumbnail,
       "content": helpers.render_markdown(@post.content),
       "tags": @post.tags.split().each do |tag|
         tag

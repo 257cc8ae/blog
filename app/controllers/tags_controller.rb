@@ -7,7 +7,20 @@ class TagsController < ApplicationController
   end
 
   def index 
-    @tags = Tag.all.page(params[:page])
+    tags = Tag.all.page(params[:page])
+    ta_a = []
+    tags.each do |tag|
+      rs = {
+        "name": tag.name,
+        "descriptions": tag.descriptions
+      }
+      ta_a.push(rs)
+    end
+    response = {
+      "next_page": tags.next_page,
+      "tags": ta_a
+    }
+    render :json => response
   end
 
   def create

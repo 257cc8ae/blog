@@ -11,6 +11,7 @@ class HomeController < ApplicationController
         "title": post.title,
         "date": post.created_at.to_s(:long),
         "tags": tags,
+        "name": post.name,
         "thumbnail": if i == 0
           post.thumbnail
         else
