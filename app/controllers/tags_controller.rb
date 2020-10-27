@@ -29,11 +29,23 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find_by(name: params[:id])
-    @posts = Post.where(['tags LIKE ?', "%#{params[:id]}%"]).page(params[:page])
+    
+    posts = Post.where(['tags LIKE ?', "%#{params[:id]}%"]).page(params[:page])
     if Tag.find_by(name: params[:id]) == nil
-      redirect_to "/404.html"
+      tag_name = params[:id]
+      tag_descriptions = "Here are article related to #{params[:id]}."
+    else 
+      tag = Tag.find_by(name: params[:id])
+      tag_name = tag.name
+      tag_descriptions = tag.descriptions
     end
+    response = {
+      "name": tag_name,
+      "descriptions": tag_descriptions,
+      "posts": posts,
+      "next_page": posts.next_page,
+    }
+    render :json => response
   end
 
   def edit
